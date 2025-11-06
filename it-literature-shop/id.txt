@@ -1,0 +1,83 @@
+fauzan@gmail.com
+111
+
+id genre history
+e73a8ae7-2810-4055-a52a-45b637d36cc5
+
+id genre fiction
+1673114f-9028-4a74-b6f0-11e9dbcada57	
+
+id buku hack nasa sci fi
+8df2e8a8-0b03-4cf4-b007-45bd717d26cc
+
+id buku indonesia histori
+694173a8-dc86-48ea-91d4-70f742cc7058
+
+id buku laskar pelangin fiction
+322f2114-3d88-4eb1-89a7-fce2f5684ac7
+
+
+
+
+Hasil testing endpoint 
+
+Method :
+
+Pada sending request ini kita perlu input Authorization header dengan menggunakan JWT dari hasil login user
+
+1.GET /genre 
+
+
+
+{
+  "success": true,
+  "message": "Get all genre successfully",
+  "data": [
+    {
+      "id": "de221d00-699a-427e-8e3e-4bbcba15c0c5",
+      "name": "Artificial Intelligence"
+    },
+    {
+      "id": "2c31df50-22a0-453e-8baf-3ff6a72683b3",
+      "name": "Computer Networks"
+    },
+    {
+      "id": "a92dd064-f0bf-4bb1-b815-73a37e773500",
+      "name": "Cybersecurity"
+    },
+    {
+      "id": "f2108811-1bfd-4fcf-b391-219993f2ac8b",
+      "name": "Data Science"
+    },
+    {
+      "id": "ea853352-8e71-49d8-8524-4ca66bee85ae",
+      "name": "Database"
+    },
+    {
+      "id": "7dd861ed-80e0-43f2-a294-6e6c87fe6b26",
+      "name": "Programming"
+    },
+    {
+      "id": "895629a6-11ed-4139-aadf-c0436fcbeec6",
+      "name": "Software Engineering"
+    },
+    {
+      "id": "ac5f7420-213f-4b8a-98ef-8ec23f0e5d73",
+      "name": "Web Development"
+    }
+  ]
+}
+
+2. Implementasi GET /genre/id (GET genre/de221d00-699a-427e-8e3e-4bbcba15c0c5)
+
+Contoh :
+{
+  "success": true,
+  "message": "Get genre detail successfully",
+  "data": {
+    "id": "de221d00-699a-427e-8e3e-4bbcba15c0c5",
+    "name": "Artificial Intelligence"
+  }
+}
+
+3.

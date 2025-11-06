@@ -1,0 +1,162 @@
+### IT Literature Shop - Login Testing
+### Demonstrasi login dengan username ATAU email
+
+@baseUrl = http://localhost:8080
+
+###############################################
+# TEST 1: Login dengan USERNAME
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "admin",
+  "password": "password123"
+}
+
+###############################################
+# TEST 2: Login dengan EMAIL
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "admin@example.com",
+  "password": "password123"
+}
+
+###############################################
+# TEST 3: Login dengan USERNAME (testuser)
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "testuser",
+  "password": "password123"
+}
+
+###############################################
+# TEST 4: Login dengan EMAIL (testuser)
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "testuser@example.com",
+  "password": "password123"
+}
+
+###############################################
+# TEST 5: Login dengan USERNAME (johndoe)
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "johndoe",
+  "password": "password123"
+}
+
+###############################################
+# TEST 6: Login dengan EMAIL (johndoe)
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "john.doe@example.com",
+  "password": "password123"
+}
+
+###############################################
+# TEST 7: Login GAGAL - Username tidak ada
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "usertidakada",
+  "password": "password123"
+}
+
+# Expected: 401 Unauthorized - Invalid credentials
+
+###############################################
+# TEST 8: Login GAGAL - Email tidak ada
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "notfound@example.com",
+  "password": "password123"
+}
+
+# Expected: 401 Unauthorized - Invalid credentials
+
+###############################################
+# TEST 9: Login GAGAL - Password salah
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "admin",
+  "password": "wrongpassword"
+}
+
+# Expected: 401 Unauthorized - Invalid credentials
+
+###############################################
+# TEST 10: Login GAGAL - Identifier kosong
+###############################################
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "",
+  "password": "password123"
+}
+
+# Expected: 400 Bad Request - Username or email is required
+
+###############################################
+# NOTES
+###############################################
+
+# ✅ Parameter "identifier" bisa diisi dengan:
+#    - Username (contoh: "admin")
+#    - Email (contoh: "admin@example.com")
+#
+# ✅ Sistem otomatis mendeteksi apakah input adalah username atau email
+#    menggunakan query OR di Prisma
+#
+# ✅ Validasi:
+#    - identifier tidak boleh kosong
+#    - password tidak boleh kosong
+#
+# ✅ Response Sukses (200):
+# {
+#   "success": true,
+#   "message": "Login successful",
+#   "data": {
+#     "token": "eyJhbGci..."
+#   }
+# }
+#
+# ❌ Response Gagal (401):
+# {
+#   "success": false,
+#   "message": "Invalid credentials"
+# }

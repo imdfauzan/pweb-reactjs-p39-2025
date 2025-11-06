@@ -1,0 +1,220 @@
+{
+  "name": "API Status Report",
+  "version": "1.0.0",
+  "project": "IT Literature Shop Backend",
+  "generated": "2025-10-21",
+  "baseUrl": "http://localhost:8080",
+  "endpoints": {
+    "total": 19,
+    "public": 3,
+    "protected": 16
+  },
+  "categories": [
+    {
+      "name": "Health & Status",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/health-check",
+          "auth": false,
+          "description": "Server health check",
+          "status": "✅ Ready to test"
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/auth/register",
+          "auth": false,
+          "description": "Register new user",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "POST",
+          "path": "/auth/login",
+          "auth": false,
+          "description": "Login user and get JWT token",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/auth/me",
+          "auth": true,
+          "description": "Get current authenticated user",
+          "status": "✅ Ready to test"
+        }
+      ]
+    },
+    {
+      "name": "Genres",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/genre",
+          "auth": true,
+          "description": "Create new genre",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/genre",
+          "auth": true,
+          "description": "Get all genres",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/genre/:id",
+          "auth": true,
+          "description": "Get genre by ID",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "PATCH",
+          "path": "/genre/:id",
+          "auth": true,
+          "description": "Update genre",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "DELETE",
+          "path": "/genre/:id",
+          "auth": true,
+          "description": "Delete genre (soft delete)",
+          "status": "✅ Ready to test"
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/books",
+          "auth": true,
+          "description": "Create new book",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/books",
+          "auth": true,
+          "description": "Get all books",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/books/:id",
+          "auth": true,
+          "description": "Get book by ID",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/books/genre/:id",
+          "auth": true,
+          "description": "Get books by genre ID",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "PATCH",
+          "path": "/books/:id",
+          "auth": true,
+          "description": "Update book",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "DELETE",
+          "path": "/books/:id",
+          "auth": true,
+          "description": "Delete book (soft delete)",
+          "status": "✅ Ready to test"
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/transactions",
+          "auth": true,
+          "description": "Create new transaction/order",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/transactions",
+          "auth": true,
+          "description": "Get all user transactions",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/transactions/:id",
+          "auth": true,
+          "description": "Get transaction by ID",
+          "status": "✅ Ready to test"
+        },
+        {
+          "method": "GET",
+          "path": "/transactions/statistics",
+          "auth": true,
+          "description": "Get transaction statistics",
+          "status": "✅ Ready to test"
+        }
+      ]
+    }
+  ],
+  "database": {
+    "type": "PostgreSQL",
+    "provider": "Neon",
+    "tables": [
+      "users",
+      "genres",
+      "books",
+      "orders",
+      "order_items"
+    ],
+    "sampleData": {
+      "users": 3,
+      "genres": 8,
+      "books": 6
+    }
+  },
+  "testUsers": [
+    {
+      "username": "testuser",
+      "password": "password123",
+      "email": "testuser@example.com"
+    },
+    {
+      "username": "admin",
+      "password": "password123",
+      "email": "admin@itliterature.com"
+    },
+    {
+      "username": "johndoe",
+      "password": "password123",
+      "email": "john.doe@example.com"
+    }
+  ],
+  "documentation": [
+    "API-DOCUMENTATION.md - Complete API reference with request/response examples",
+    "TESTING-GUIDE.md - Postman collection usage guide",
+    "DEPLOYMENT-GUIDE.md - Server deployment and troubleshooting",
+    "database-setup.sql - Database schema and sample data",
+    "IT-Literature-Shop-Postman-Collection.json - Postman collection for testing"
+  ],
+  "nextSteps": [
+    "1. Run: npm install --save-dev @types/node",
+    "2. Run: npx prisma generate",
+    "3. Run: npm run dev",
+    "4. Test: http://localhost:8080/health-check",
+    "5. Import Postman collection and test login",
+    "6. Follow DEPLOYMENT-GUIDE.md for complete setup"
+  ]
+}
